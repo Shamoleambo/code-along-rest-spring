@@ -3,6 +3,7 @@ package com.tidz.rest.rest;
 import com.tidz.rest.entity.Student;
 import jakarta.annotation.PostConstruct;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,5 +27,10 @@ public class StudentRestController {
     @GetMapping("/students")
     public List<Student> getStudents() {
         return this.students;
+    }
+
+    @GetMapping("/students/{id}")
+    public Student getStudent(@PathVariable int id) {
+        return this.students.get(id);
     }
 }
